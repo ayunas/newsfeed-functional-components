@@ -4,7 +4,7 @@
 .article {
   margin: 20px 10%;
   padding: 0 20px 25px;
-  border: 1px solid lightgrey;
+  border: 1px solid lightgray;
   border-radius: 10px;
   background-color: white;
   position: relative;
@@ -31,6 +31,7 @@
 
   .expandButton {
     position: absolute;
+    // position: sticky;
     bottom: 0;
     left: 50%;
     font-size: 12px;
@@ -38,11 +39,13 @@
     cursor: pointer;
     transform: translate(-50%);
     background-color: white;
+
   }
 }
 
 .article-open {
   height: 400px;
+  // overflow: scroll;
 }
 
 

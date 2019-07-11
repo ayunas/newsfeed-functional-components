@@ -88,8 +88,72 @@ const data = [
   }
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+function articleMaker(dataObj) {
+
+  console.log(dataObj);
+
+
+  const article = document.createElement('div');
+  const h2 = document.createElement('h2');
+
+  const button = document.createElement('button');
+  const buttonDiv = document.createElement('div');
+  article.appendChild(buttonDiv);
+  buttonDiv.appendChild(button);
+
+  article.appendChild(h2);
+
+  for (key in dataObj) {
+
+    if (key === 'date') {
+      const p = document.createElement('p');
+      article.appendChild(p);
+      p.classList.add('date');
+      p.textContent = dataObj[key];
+    }
+
+    if (key.includes('Paragraph')) {
+      const p = document.createElement('p');
+      article.appendChild(p);
+      p.textContent = dataObj[key];
+    }
+
+  }
+
+  // article.appendChild(button);
+
+  // p1.classList.add('date');
+
+  article.classList.add('article');
+  button.classList.add('expandButton');
+
+  // p1.textContent = 'paragraph 1';
+  // p2.textContent = 'paragraph 2';
+  // p3.textContent = 'paragraph 3';
+  button.textContent = 'expand';
+  h2.textContent = dataObj.title;
+
+  button.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+    if (button.textContent === 'expand') {
+      button.textContent = 'collapse';
+    } else {
+      button.textContent = 'expand';
+    }
+  })
+
+  return article;
+
+}
+
+const articles = document.querySelector('.articles');
+// articles.appendChild(articleMaker(data));
+
+data.forEach(dataObj => articles.appendChild(articleMaker(dataObj)))
+
+
+/* Step 1: Create a function that creates a component. You will want your component to look like the template below:
+
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
