@@ -90,9 +90,6 @@ const data = [
 
 function articleMaker(dataObj) {
 
-  console.log(dataObj);
-
-
   const article = document.createElement('div');
   const h2 = document.createElement('h2');
 
